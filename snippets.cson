@@ -1,0 +1,34 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+'.source.js':
+  'Template Init':
+    'prefix': 'newtem'
+    'body': 'Template.$1.helpers({\n\t$2\n});\n\nTemplate.$1.events({\n\t$3\n});\n\nTemplate.$1.onCreated(function(){\n\tconsole.log(\'${1} rendered\');\n\treturn;\n});\n\nTemplate.$1.onRendered(function(){\n\tconsole.log(\'${1} created\');\n\treturn;\n});'
+  'Template Instance':
+    'prefix': 'instance'
+    'body': 'Template.instance().$1;'
+  'Template Reactive Variable':
+    'prefix': 'newrevar'
+    'body': 'this.$1 = new ReactiveVar($2);'
+  'Template Click Event':
+    'prefix': 'ce'
+    'body': '\'click $1\': function(e, templ){\n\tconsole.log(\'clicked $1\');\n\t$2\n\treturn;\n},'
